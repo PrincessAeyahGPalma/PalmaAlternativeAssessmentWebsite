@@ -21,9 +21,10 @@
 											
 		.box{
 			width: 180px;
-			font-size: 2em;
+			font-size: 1.5em;
 			text-align: center;
 			border-radius: 15px;
+			font-weight: bold;
 		}
 		
 		#box1{
@@ -42,19 +43,41 @@
 			background-color: #fc9df3;
 		}
 		
-		p{
+		h1{
 			text-align: center;
 			color: #ffffff;
 			font-size: 8em;
 			text-shadow: 8px 2px #242222;
 		}
-									
+		
+		p{
+			display: none;
+ 			background-color: #5c413f;
+			padding: 20px;
+			font-weight: bold;
+			text-align: center;	
+			font-size: 2em;
+			color: white;
+		}
+		
+		a{
+			text-decoration: none;
+			color: #000000;	
+		}				
+		
+		div.box:hover{
+			font-size: 2em;
+		}
+
+		div:hover p {
+ 			display: block;
+		}
+		
 		</style>
-	
 	<body>
 		<div class = "container">
 			<div class = "box" id = "box1">
-				<a href = "Description.html">Description</a>		
+				<a href = "Description.html">Description</a>
 			</div>
 			
 			<div class = "box" id = "box2">
@@ -68,12 +91,17 @@
 			<div class = "box" id = "box4">
 				<a href = "">Solutions</a>
 			</div>
-			
 		</div>
-		
-		<p>
-			Toddler's Locker
-		</p>
+		<br>
+		<div style="width:500px; margin:auto; position:relative;">
+    			<audio controls style="width:100%;">
+       			<source src="Audio.mp3">    					
+			</audio>
+			</div>
+		<div>
+			<h1>Toddler's Locker</h1>
+			<p>PEEK-A-BOO!</p>
+		</div>
 	</body>
 	
 </html>
