@@ -1,75 +1,108 @@
 <!DOCTYPE html>
-<html>	
-		<head>
-      		<title>Fun Facts</title>
-    		</head>
+<html>
+<head>
+  <title>Fun Facts</title>
+  <style>
+    body {
+      background-color: #54ade8;
+    }
 
-		<style>
-		body{
-			background-color: #54ade8;
-		}
-		
-		h1{
-			color: #ffffff;
-			font-size: 5em;
-			text-shadow: 8px 2px #242222;
-			text-align: center;
-		}
-		
-		h2{
-			color: #ffffff;
-			font-size: 2em;
-			text-align: center;
-			text-shadow: 3px 2px #242222;
-		}
-		
-		p{
-			text-align: center;
-		}
-		
-		nav{
-		text-align: center;
-		display: flex;
-		justify-content: space-evenly;
-		}
-		
-		footer{
-			font-weight: bold;
-		}
-		
-		section{
-			font-weight: bold;
-			font-size: 1.5em;
-		}
-		</style>
-	
-		<body>
-	      <header>
-	        <h1>Fun Facts</h1>
-	      </header>
-	       <nav>
-	          <a href="Toddler's Locker.html">Home</a>
-	          <a href="#">About the Creator</a>
-	          <a href="#">Feedback</a>
-	        </nav>
-	      <article>
-			<h1>Fun Facts</h1>
-		<h2>Fun Fact #1</h2>
-			<p>During the toddler years (around ages 1 to 3), a child's brain develops more than at any other time in their life. <br> They can form new neural connections at an astonishing rate, which is crucial for language acquisition and cognitive skills.</p>
-		<h2>Fun Fact #2</h2>
-			<p>Toddlers have a unique ability to negotiate in the most unexpected ways. <br> For instance, they might insist on wearing their superhero cape to the grocery store, completely oblivious to the fact that it's not typical attire. <br> Their confidence in these "fashion choices" can leave parents both amused and bewildered! </p>
-		<h2>Fun Fact #3</h2>
-			<p>Toddlers are just beginning to understand and express their emotions. <br> They often experience intense feelings and may not yet have the vocabulary or skills to articulate them, leading to tantrums or other expressive behaviors.</p>
-		<h2>Fun Fact #4</h2>
-			<p>Toddlers often mispronounce words in hilarious ways, creating their own unique vocabulary. <br> For example, they might call a "banana" a "nana" or a "cereal" "see-wee-ow." <br> These adorable mix-ups can lead to laughter and countless cute moments as parents try to decode their little ones’ language!</p>
-		<h2>Fun Fact #5</h2>
-			<p>Toddlers are naturally curious and love to explore their environment. <br> This is an important part of their learning process, guiding them to understand the world around them through play, experimentation, and interaction.</p>
-	      </article>
-	      <section>
-	        <p>Made for the little worlds</p>
-	      </section>
-		<footer>
- 			<p>Copyright (C) 2020. All rights reserved.</p>
- 		</footer>
-		</body>
-	</html>
+    h1 {
+      color: #ffffff;
+      font-size: 5em;
+      text-shadow: 8px 2px #242222;
+      text-align: center;
+    }
+
+    .sprite {
+      width: 640px;
+      height: 64px;
+      background: url(bird-sprite.png) no-repeat;
+      background-size: contain;
+	}
+
+    h2 {
+      color: #ffffff;
+      font-size: 2em;
+      text-align: center;
+      text-shadow: 3px 2px #242222;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    nav {
+      text-align: center;
+      display: flex;
+      justify-content: space-evenly;
+      position: sticky;
+      top: 0;
+    }
+
+    footer {
+      font-weight: bold;
+    }
+
+    section {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    .video-container {
+      text-align: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    nav a[href$=".html"] {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="sprite"></div>
+    <h1>Fun Facts</h1>
+  </header>
+  <nav>
+    <a href="Toddler's Locker.html">Home</a>
+    <a href="#">About the Creator</a>
+    <a href="#">Feedback</a>
+  </nav>
+  <article>
+    <h1>Fun Facts</h1>
+    <h2>Fun Fact #1</h2>
+    <p>During the toddler years (around ages 1 to 3), a child's brain develops more than at any other time in their life. <br> They can form new neural connections at an astonishing rate, which is crucial for language acquisition and cognitive skills.</p>
+    <h2>Fun Fact #2</h2>
+    <p>Toddlers have a unique ability to negotiate in the most unexpected ways. <br> For instance, they might insist on wearing their superhero cape to the grocery store, completely oblivious to the fact that it's not typical attire. <br> Their confidence in these "fashion choices" can leave parents both amused and bewildered! </p>
+    <h2>Fun Fact #3</h2>
+    <p>Toddlers are just beginning to understand and express their emotions. <br> They often experience intense feelings and may not yet have the vocabulary or skills to articulate them, leading to tantrums or other expressive behaviors.</p>
+    <h2>Fun Fact #4</h2>
+    <p>Toddlers often mispronounce words in hilarious ways, creating their own unique vocabulary. <br> For example, they might call a "banana" a "nana" or a "cereal" "see-wee-ow." <br> These adorable mix-ups can lead to laughter and countless cute moments as parents try to decode their little one's language!</p>
+    <h2>Fun Fact #5</h2>
+    <p>Toddlers are naturally curious and love to explore their environment. <br> This is an important part of their learning process, guiding them to understand the world around them through play, experimentation, and interaction.</p>
+
+    <div class="video-container">
+      <video width="640" height="480" controls>
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video element. Kindly update it to the latest version.
+      </video>
+    </div>
+  </article>
+  <section>
+    <p>Made for the little worlds</p>
+  </section>
+  <footer>
+    <p>Copyright (C) 2020. All rights reserved.</p>
+  </footer>
+</body>
+</html>
