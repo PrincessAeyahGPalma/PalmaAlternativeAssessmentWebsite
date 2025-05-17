@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Signup | Toddler's Locker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fc9df3;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding-top: 60px;
+    }
+
+    h1 {
+      font-size: 4em;
+      text-shadow: 6px 3px #242222;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      padding: 0 15px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-style: italic;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: -10px;
+      display: block;
+    }
+
+    button {
+      background-color: #fcbf49;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1em;
+      color: #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffda77;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Awarness for Toddlers</h1>
+    <p>Advocating for more awareness about toddlers such as how their mind works, behaviour, and preferences.</p>
+  </header>
+
+  <nav>
+    <a href="Toddler's Locker.html">Home</a>
+    <a href="#">About the Creator</a>
+    <a href="#">Feedback</a>
+  </nav>
+
+  <form id="signupForm">
+    <label>First Name <input type="text" id="firstName" required></label>
+    <span class="error" id="errorFirstName"></span>
+	</br>
+	
+    <label>Last Name <input type="text" id="lastName" required></label>
+    <span class="error" id="errorLastName"></span>
+	</br>
+	
+    <label>Sex </label>
+    <label><input type="radio" name="sex" value="Male"> Male</label>
+    <label><input type="radio" name="sex" value="Female"> Female</label>
+    <label><input type="radio" name="sex" value="Prefer not to say"> Prefer not to say</label>
+	</br>
+    <span class="error" id="errorSex"></span>
+
+    <label>Email Address <input type="email" id="email" required></label>
+    <span class="error" id="errorEmail"></span>
+	</br>
+	
+    <label>Password <input type="password" id="password" required></label>
+    <span class="error" id="errorPassword"></span>
+	</br>
+
+    <label>Contact Number <input type="text" id="contact"></label>
+
+    <label>Why you’re supporting our campaign </label>
+    <textarea id="reason" required></textarea>
+    <span class="error" id="errorReason"></span>
+	</br>
+
+    <button type="submit">Join the Movement</button>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 Toddler's Locker. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
