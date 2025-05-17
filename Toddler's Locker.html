@@ -1,107 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Toddler's Locker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: url('Locker.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
 
-	<head>
-		<title>Toddler's Locker</title>
-	</head>
-	
-	<style>
-		body{
-			background-image: url(Locker.png);
-			background-repeat: no-repeat;
-			background-position: center;
-			background-attachment: fixed;
-			background-size: cover;
-		}
-		
-		.container{
-			display: flex;
-			justify-content: space-evenly;
-		}
-											
-		.box{
-			width: 180px;
-			font-size: 1.5em;
-			text-align: center;
-			border-radius: 15px;
-			font-weight: bold;
-		}
-		
-		#box1{
-			background-color: #f2ea8f;
-		}
-		
-		#box2{
-			background-color: #54ade8;
-		}
-		
-		#box3{
-			background-color: #d191ff;
-		}
-		
-		#box4{
-			background-color: #fc9df3;
-		}
-		
-		h1{
-			text-align: center;
-			color: #ffffff;
-			font-size: 8em;
-			text-shadow: 8px 2px #242222;
-		}
-		
-		p{
-			display: none;
- 			background-color: #5c413f;
-			padding: 20px;
-			font-weight: bold;
-			text-align: center;	
-			font-size: 2em;
-			color: white;
-		}
-		
-		a{
-			text-decoration: none;
-			color: #000000;	
-		}				
-		
-		div.box:hover{
-			font-size: 2em;
-		}
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-		div:hover p {
- 			display: block;
-		}
-		
-		</style>
-	<body>
-		<div class = "container">
-			<div class = "box" id = "box1">
-				<a href = "Description.html">Description</a>
-			</div>
-			
-			<div class = "box" id = "box2">
-				<a href = "Funfacts.html">Fun Facts</a>
-			</div>
-			
-			<div class = "box" id = "box3">
-				<a href = "">Problems</a>
-			</div>
-			
-			<div class = "box" id = "box4">
-				<a href = "">Solutions</a>
-			</div>
-		</div>
-		<br>
-		<div style="width:500px; margin:auto; position:relative;">
-    			<audio controls style="width:100%;">
-       			<source src="Audio.mp3">    					
-			</audio>
-			</div>
-		<div>
-			<h1>Toddler's Locker</h1>
-			<p>PEEK-A-BOO!</p>
-		</div>
-	</body>
-	
+    .splash-screen h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 4px 2px #000;
+    }
+
+    .splash-screen button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f2ea8f;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .splash-screen button:hover {
+      background-color: #e2da7f;
+    }
+
+    .main-content {
+      display: none;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 5em;
+      margin-top: 30px;
+      text-shadow: 6px 4px #222;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 60px auto;
+      max-width: 1000px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #000;
+      position: relative;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.5s ease, background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .box a {
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box:hover {
+      transform: scale(1.1) rotate(5deg);
+      color: #fff;
+    }
+
+    .box:hover .tooltip {
+      display: block;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(92, 65, 63, 0.9);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    #box1 { background-color: #f2ea8f; }
+    #box2 { background-color: #54ade8; }
+    #box3 { background-color: #d191ff; }
+    #box4 { background-color: #fc9df3; }
+
+    .audio-container {
+      max-width: 500px;
+      margin: 30px auto;
+    }
+
+    audio {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3em; }
+      .box {
+        width: 150px;
+        height: 150px;
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="splash-screen" id="splash">
+    <h1>Welcome to Toddler's Locker</h1>
+    <button onclick="startSite()">Open</button>
+  </div>
+
+  <div class="main-content" id="main-content">
+
+    <h1>Toddler's Locker</h1>
+
+    <div class="container">
+      <div class="box" id="box1">
+        <a href="Description.html">
+          Description
+          <div class="tooltip">What's this?</div>
+        </a>
+      </div>
+      <div class="box" id="box2">
+        <a href="Funfacts.html">
+          Fun Facts
+          <div class="tooltip">Surprising facts!</div>
+        </a>
+      </div>
+      <div class="box" id="box3">
+        <a href="Quiz.html">
+          SDG Quiz
+          <div class="tooltip">Try to answer!</div>
+        </a>
+      </div>
+      <div class="box" id="box4">
+        <a href="Signup.html">
+          Sign up
+          <div class="tooltip">Support us?</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="audio-container">
+      <audio id="locker-audio" controls>
+        <source src="Audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </div>
+
+  <script>
+    function startSite() {
+      const splash = document.getElementById('splash');
+      const mainContent = document.getElementById('main-content');
+      const audio = document.getElementById('locker-audio');
+
+      splash.style.display = 'none';
+      mainContent.style.display = 'block';
+
+      audio.play().catch(error => {
+        console.warn("Audio playback failed:", error);
+      });
+    }
+  </script>
+
+</body>
 </html>
