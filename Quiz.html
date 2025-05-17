@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG 3 Quiz | Toddler's Locker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #d191ff;
+      color: #333;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4em;
+      color: #fff;
+      text-shadow: 6px 3px #242222;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: rgba(255, 255, 255, 0.3);
+      position: sticky;
+      top: 0;
+      padding: 15px;
+      z-index: 10;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-style: italic;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .quiz-container {
+      width: 90%;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f7e6ff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .question {
+      display: none;
+    }
+
+    .question.active {
+      display: block;
+    }
+
+    .quiz-container h2 {
+      text-align: center;
+      color: #242222;
+      margin-bottom: 25px;
+    }
+
+    .options label {
+      display: block;
+      background: #a858ff;
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .options label:hover {
+      background: #8629e6;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #5e239d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4a1a7a;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 1.4em;
+      color: #6a1b9a;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    section {
+      font-weight: bold;
+      font-size: 1.5em;
+      text-align: center;
+      margin: 30px 0;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3em;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SDG 3 Quiz</h1>
+  </header>
+
+  <nav>
+    <a href="Toddler's Locker.html">Home</a>
+    <a href="#">About the Creator</a>
+    <a href="#">Feedback</a>
+  </nav>
+
+  <div class="quiz-container">
+    <h2>Good Health and Well-Being</h2>
+
+    <form id="quizForm">
+      <div class="question active" id="q1">
+        <p>1. What is the goal of SDG 3?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> Promote global trade</label>
+          <label><input type="radio" name="q1" value="b"> Ensure healthy lives and well-being for all</label>
+          <label><input type="radio" name="q1" value="c"> Build more roads</label>
+          <label><input type="radio" name="q1" value="d"> Increase fashion exports</label>
+        </div>
+        <button type="button" onclick="nextQuestion(1)">Next</button>
+      </div>
+
+      <div class="question" id="q2">
+        <p>2. What is one target of SDG 3?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> Reduce child mortality</label>
+          <label><input type="radio" name="q2" value="b"> Eliminate income tax</label>
+          <label><input type="radio" name="q2" value="c"> Ban bicycles</label>
+          <label><input type="radio" name="q2" value="d"> Promote junk food</label>
+        </div>
+        <button type="button" onclick="nextQuestion(2)">Next</button>
+      </div>
+
+      <div class="question" id="q3">
+        <p>3. Which of the following supports SDG 3?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Avoid vaccinations</label>
+          <label><input type="radio" name="q3" value="b"> Promote health education</label>
+          <label><input type="radio" name="q3" value="c"> Sell cigarettes</label>
+          <label><input type="radio" name="q3" value="d"> Burn plastic waste</label>
+        </div>
+        <button type="button" onclick="checkAnswers()">Submit</button>
+      </div>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <section>
+    <p>Made for the little worlds</p>
+  </section>
+
+  <footer>
+    <p>Copyright © 2024. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function nextQuestion(current) {
+      document.getElementById("q" + current).classList.remove("active");
+      document.getElementById("q" + (current + 1)).classList.add("active");
+    }
+
+    function checkAnswers() {
+      const answers = { q1: "b", q2: "a", q3: "b" };
+      let score = 0;
+
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById("quizForm").style.display = "none";
+      document.getElementById("result").innerText = `You scored ${score} out of 3. ${
+        score === 3 ? "Excellent job!" : score === 2 ? "Nice work!" : "Keep learning!"
+      }`;
+    }
+  </script>
+
+</body>
+</html>
