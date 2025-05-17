@@ -1,140 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Description</title>
+  <meta charset="UTF-8" />
+  <title>Toddler's Locker</title>
   <style>
     body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: url('Locker.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .splash-screen h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 4px 2px #000;
+    }
+
+    .splash-screen button {
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
       background-color: #f2ea8f;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .splash-screen button:hover {
+      background-color: #e2da7f;
+    }
+
+    .main-content {
+      display: none;
+      padding-bottom: 50px;
     }
 
     h1 {
-      color: #ffffff;
+      text-align: center;
       font-size: 5em;
-      text-shadow: 8px 2px #242222;
-      text-align: center;
+      margin-top: 30px;
+      text-shadow: 6px 4px #222;
     }
 
-    h2 {
-      color: #ffffff;
-      font-size: 2em;
-      text-align: center;
-      text-shadow: 3px 2px #242222;
-    }
-
-    p {
-      text-align: center;
-    }
-
-    nav {
-      text-align: center;
-      display: flex;
-      justify-content: space-evenly;
-      position: sticky;
-      top: 0;
-    }
-
-    footer {
-      font-weight: bold;
-    }
-
-    section {
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-
-    figcaption {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: white;
-    }
-
-    aside {
+    .container {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 60px auto;
+      max-width: 1000px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      display: flex;
       align-items: center;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    figure {
-      max-width: 100%;
-      text-align: center;
-    }
-
-    figure img {
-      width: 100%;
-      max-width: 750px;
-      height: auto;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: black;
+      justify-content: center;
+      font-size: 1.5em;
       font-weight: bold;
+      color: #000;
+      position: relative;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.5s ease, background-color 0.3s;
+      cursor: pointer;
     }
 
-    nav a[href$=".html"] {
-      font-style: italic;
+    .box a {
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .sprite {
-      width: 64px; 
-      height: 64px;
-      background: url(sprite-image.png) no-repeat;
-      animation: animateSprite 1.5s steps(6) infinite;
+    .box:hover {
+      transform: scale(1.1) rotate(5deg);
+      color: #fff;
     }
 
-    @keyframes animateSprite {
-      from {
-        background-position: 0;
+    .box:hover .tooltip {
+      display: block;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(92, 65, 63, 0.9);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    #box1 { background-color: #f2ea8f; }
+    #box2 { background-color: #54ade8; }
+    #box3 { background-color: #d191ff; }
+    #box4 { background-color: #fc9df3; }
+
+    .audio-container {
+      max-width: 500px;
+      margin: 30px auto;
+    }
+
+    audio {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3em; }
+      .box {
+        width: 150px;
+        height: 150px;
+        font-size: 1.2em;
       }
-      to {
-        background-position: -384px;
-      }
     }
-
   </style>
 </head>
 <body>
 
-  <div class="sprite"></div>
+  <div class="splash-screen" id="splash">
+    <h1>Welcome to Toddler's Locker</h1>
+    <button onclick="startSite()">Open</button>
+  </div>
 
-  <header>
-    <h1>Description</h1>
-  </header>
-  <nav>
-    <a href="Toddler's Locker.html">Home</a>
-    <a href="#">About the Creator</a>
-    <a href="#">Feedback</a>
-  </nav>
-  <article>
-    <h1>Introduction</h1>
-    <p>Toddler's Locker is a website dedicated to how toddlers interact, behave, and their preferences in their little worlds. This website also talks about the common issues with toddlers, such as why some toddlers are having difficulty learning how to speak. Alongside the issues, some solutions are shared on this website.</p>
+  <div class="main-content" id="main-content">
 
-    <h1>Purpose</h1>
-    <p>The purpose of this website is to tell people about the world of our little ones. This website was created to share how our kids see our world from their perspective. Toddler's Locker also aims to spread awareness about the problems and issues of toddlers, from their immune system up to some behavioral issues. And with this website, we might be able to handle toddlers much better as we further understand how they think.</p>
-  </article>
-  <aside>
-    <figure>
-      <img src="Locker.png" height="500px" width="750px" alt="The Toddler's Room">
-      <figcaption>The Toddler's Room</figcaption>
-    </figure>
-  </aside>
-  <section>
-    <p>Made for the little worlds</p>
-  </section>
-  <footer>
-    <p>Copyright (C) 2020. All rights reserved.</p>
-  </footer>
+    <h1>Toddler's Locker</h1>
+
+    <div class="container">
+      <div class="box" id="box1">
+        <a href="Description.html">
+          Description
+          <div class="tooltip">What's this?</div>
+        </a>
+      </div>
+      <div class="box" id="box2">
+        <a href="Funfacts.html">
+          Fun Facts
+          <div class="tooltip">Surprising facts!</div>
+        </a>
+      </div>
+      <div class="box" id="box3">
+        <a href="Quiz.html">
+          SDG Quiz
+          <div class="tooltip">Try to answer!</div>
+        </a>
+      </div>
+      <div class="box" id="box4">
+        <a href="Signup.html">
+          Sign up
+          <div class="tooltip">Support us?</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="audio-container">
+      <audio id="locker-audio" controls>
+        <source src="Audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </div>
+
+  <script>
+    function startSite() {
+      const splash = document.getElementById('splash');
+      const mainContent = document.getElementById('main-content');
+      const audio = document.getElementById('locker-audio');
+
+      splash.style.display = 'none';
+      mainContent.style.display = 'block';
+
+      audio.play().catch(error => {
+        console.warn("Audio playback failed:", error);
+      });
+    }
+  </script>
+
 </body>
 </html>
